@@ -1,8 +1,7 @@
 
 public interface InterfaceEtudiant {
 
-	
-public int getMatricule();
+	public int getMatricule();
 	
 	public void setMatricule(int matricule);
 	
@@ -33,4 +32,6 @@ public int getMatricule();
 	public String getPwd() ;
 
 	public void setPwd(String pwd);
+	
+	public void bonus(int bonus);
 }

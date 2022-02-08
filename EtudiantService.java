@@ -14,7 +14,13 @@ public class EtudiantService implements InterfaceEtudiantService {
 		this.UnivRep = UnivRep;
 
 	}
-
+public void AjouerBonusEtudiant(Etudiant E, InterfaceUniversiteRepository UR) throws SQLException{
+		
+		InterfaceUniversite universite = UR.GetById(E.getId_universite());
+		AbsractFactory AB = new AbsractFactory();
+		Package P = AB.getPackage(universite.getPack());
+		E.bonus(P.getBonus());
+	}
 	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository) throws SQLException {	    
 	    System.out.println("Log: debut de l'operation d'ajout de l'etudiant avec matricule "+etudiant.getMatricule());
 	    Enregistrement  R = new Enregistrement ();
