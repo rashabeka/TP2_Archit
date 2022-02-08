@@ -1,5 +1,5 @@
 
-public class Etudiant {
+public class Etudiant  implements InterfaceEtudiant {
 
 		private int matricule;
 	    private String nom;
@@ -100,6 +100,7 @@ public class Etudiant {
 		public void setPwd(String pwd) {
 			this.pwd = pwd;
 		}
+
 
 		
 		
