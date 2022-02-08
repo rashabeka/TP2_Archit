@@ -3,6 +3,16 @@ import java.sql.SQLException;
 public class MainApp {
 
 	public static void main(String[] args) throws SQLException {
+		
+		Composite AListes = new Composite();
+        IJournal AffichageEcran = new AffichageEcran();
+        IJournal AffichageDate = new AffichageDate();
+        IJournal AffichageFile = new AffichageFile();
+
+        AListes.addAffichage(AffichageFile);
+        AListes.addAffichage(AffichageEcran);
+        AListes.addAffichage(AffichageDate);
+		
 		InterfaceEtudiantRepository etudiantRepository = new EtudiantRepository();
 		InterfaceUniversiteRepository universiteRepository = new UniversiteRepository();
 		InterfaceEtudiantService serv = new EtudiantService(etudiantRepository, universiteRepository);
