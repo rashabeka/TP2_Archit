@@ -15,47 +15,18 @@ public class EtudiantService implements InterfaceEtudiantService {
 
 	}
 
-	public boolean inscription (int matricule, String nom, String prenom, String email,String pwd, int id_universite) throws SQLException
-	{
-		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
-	    Etudiant stud = new Etudiant(matricule, nom, prenom, email,pwd,id_universite);
-	    Universite univ=UnivRep.GetById(id_universite);
-	    
-	    System.out.println("Log: debut de l'operation d'ajout de l'etudiant avec matricule "+matricule);
-	    
-	    if(email == null || email.length() == 0)
-	    {
-	    	return false;
-	    }
-	    
-	    if (StudRep.Exists(matricule))
-	    {
-	        return false;
-	    }
-	    
-		if (StudRep.Exists(email))
-	    {
-	        return false;
-	    }
-		
-		
-		
-		 if (univ.getPack() == TypePackage.Standard)
-	     {
-	          stud.setNbLivreMensuel_Autorise(10);
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
-	     }                           
-	     
-		 StudRep.add(stud);
-		 System.out.println("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+matricule);
+	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository) throws SQLException {	    
+	    System.out.println("Log: debut de l'operation d'ajout de l'etudiant avec matricule "+etudiant.getMatricule());
+	    Enregistrement  R = new Enregistrement ();
+		if (R.EtudiantVerification(etudiant, etudiantRepository))
+		{
+		 R.setNbLivreMensuelAutorise(etudiant, universite.getPack());
+		 etudiantRepository.add(etudiant);
+		 System.out.println("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+etudiant.getMatricule());
 		 return true;
-	    
-		
-	}
+		}
+		return false;
+	   }
 	
 	
 	

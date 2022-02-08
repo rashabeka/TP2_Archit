@@ -22,7 +22,7 @@ public class MainApp {
 
 
 		try {
-			serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com", "xxxx", 1);
+			serv.inscription(etudiant,universite,etudiantRepository);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -3,11 +3,11 @@ import java.util.ArrayList;
 
 public interface InterfaceEtudiantService {
 	
-	boolean inscription (int matricule, String nom, String prenom, String email,String pwd, int id_universite) throws SQLException;
+	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository) throws SQLException;	    
 		
-		public ArrayList<InterfaceEtudiant> GetEtudiantParUniversitye();
+	public ArrayList<InterfaceEtudiant> GetEtudiantParUniversitye();
 		
-		public ArrayList<InterfaceEtudiant> GetEtudiatparLivreEmprunte();
+	public ArrayList<InterfaceEtudiant> GetEtudiatparLivreEmprunte();
 
 			}
 
