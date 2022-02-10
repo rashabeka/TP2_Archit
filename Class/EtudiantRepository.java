@@ -72,7 +72,21 @@ public class EtudiantRepository implements InterfaceEtudiantRepository{
 		this.connect.close();
 		
 	}
-
+	
+	 public boolean EtudiantVerification(InterfaceEtudiant E) throws SQLException{
+	        if(E.getEmail() != null || E.getEmail().length() != 0 ){
+	            if(!this.Exists(E.getEmail())){
+	                if(!this.Exists(E.getMatricule())){
+	                    return true;
+	                }else{
+	                    return false;
+	                }
+	            }else{
+	                return false;
+	            }
+	        }      
+	        return false;
+	    }
 	}
 
 

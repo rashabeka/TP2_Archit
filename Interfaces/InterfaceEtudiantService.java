@@ -6,7 +6,7 @@ import Class.Etudiant;
 
 public interface InterfaceEtudiantService {
 	
-	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository) throws SQLException;	    
+	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository,InterfaceUniversiteRepository universiteRepository) throws SQLException;	    
 		
 	public ArrayList<InterfaceEtudiant> GetEtudiantParUniversitye();
 		

@@ -33,13 +33,12 @@ public void AjouerBonusEtudiant(Etudiant E, InterfaceUniversiteRepository UR) th
 		Package P = AB.getPackage(universite.getPack());
 		E.bonus(P.getBonus());
 	}
-	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository) throws SQLException {	    
+	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository,InterfaceUniversiteRepository universiteRepository) throws SQLException {	    
 		AffichageDate.setClassName("EtudiantService");
 		J.outPut_Msg("Log: debut de l'operation d'ajout de l'etudiant avec matricule "+etudiant.getMatricule());
-	    Enregistrement  R = new Enregistrement ();
-		if (R.EtudiantVerification(etudiant, etudiantRepository))
-		{
-		 R.setNbLivreMensuelAutorise(etudiant, universite.getPack());
+	    
+		if (etudiantRepository.EtudiantVerification(etudiant))
+		{ universiteRepository.setNbLivreMensuelAutorise(etudiant, universite.getPack());
 		 etudiantRepository.add(etudiant);
 		 J.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+etudiant.getMatricule());
 		 return true;

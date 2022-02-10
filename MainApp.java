@@ -55,7 +55,7 @@ public class MainApp {
 			for (Etudiant Etudiant:listeEtudiant) {
 				 for (Universite Universite:listeUniversite) {
 					 if(Etudiant.getId_universite()==Universite.getI_univ()) {
-						 serv.inscription(Etudiant, Universite, etudiantRepository);
+						 serv.inscription(Etudiant, Universite, etudiantRepository,universiteRepository);
 					 }
 				 }
 			}
