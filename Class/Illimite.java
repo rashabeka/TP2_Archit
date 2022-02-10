@@ -1,5 +1,6 @@
 package Class;
 import Interfaces.Package;
+import Interfaces.TypePackage;
 
 public class Illimite implements Package {
 	 @Override
@@ -11,6 +12,9 @@ public class Illimite implements Package {
 	    public int getBonus() {
 	        // TODO Auto-generated method stub
 	        return 0;
+	    }
+	    public void setNbLivreMensuelAutorise(Etudiant E){
+	           
 	    }
 	}
 

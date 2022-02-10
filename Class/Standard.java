@@ -15,5 +15,8 @@ public class Standard implements Package {
 	        // TODO Auto-generated method stub
 	        return this.Bonus;
 	    }
+	    public void setNbLivreMensuelAutorise(Etudiant E){
+            E.setNbLivreMensuel_Autorise(10);
+    }
 	}
 

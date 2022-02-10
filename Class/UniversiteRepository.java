@@ -45,13 +45,6 @@ public class UniversiteRepository implements InterfaceUniversiteRepository{
 	
 		
 	}
-@Override
-    public void setNbLivreMensuelAutorise(Etudiant E, TypePackage P){
-        if(P == TypePackage.Standard){
-            E.setNbLivreMensuel_Autorise(10);
-        }
-        if(P == TypePackage.Premium){
-            E.setNbLivreMensuel_Autorise(20);
-        }
-    }
+
+   
 }

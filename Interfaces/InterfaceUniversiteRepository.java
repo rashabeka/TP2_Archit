@@ -6,6 +6,6 @@ import Class.Universite;
 
 public interface InterfaceUniversiteRepository {
     public   Universite GetById(int id) throws SQLException;
-    public void setNbLivreMensuelAutorise(Etudiant E, TypePackage P);
+   
 			}
 

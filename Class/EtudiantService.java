@@ -38,8 +38,10 @@ public void AjouerBonusEtudiant(Etudiant E, InterfaceUniversiteRepository UR) th
 		J.outPut_Msg("Log: debut de l'operation d'ajout de l'etudiant avec matricule "+etudiant.getMatricule());
 	    
 		if (etudiantRepository.EtudiantVerification(etudiant))
-		{ universiteRepository.setNbLivreMensuelAutorise(etudiant, universite.getPack());
-		 etudiantRepository.add(etudiant);
+		{    AbsractFactory AFactory = new AbsractFactory();
+		     Package P = AFactory.getPackage(universite.getPack());
+	       	 P.setNbLivreMensuelAutorise(etudiant );
+		     etudiantRepository.add(etudiant);
 		 J.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+etudiant.getMatricule());
 		 return true;
 		}
